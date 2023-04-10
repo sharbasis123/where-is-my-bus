@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Where is my Bus</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <div
+      class="container my-5 d-flex flex-column align-items-center"
+      id="container"
+    >
+      <header class="header font-weight-bolder " style="color: #fff;border: 2px solid #fff;" 
+      id="header">
+        
+        <h1 class="my-2 mx-5">Where is my Bus</h1>
+      </header>
+
+      <section class="main mt-5 ">
+        <form action="#">
+          <div class="fstop mx-2">
+            <label for="fstop" class="stoplable">From</label>
+            <input
+              type="text"
+              id="fstop"
+              name="fstop"
+              placeholder="Enter bus stop"
+            /><br /><br />
+          </div>
+          <div class="lstop mx-2 mt-4">
+            <label for="lstop" class="stoplable">To</label>
+            <input
+              type="text"
+              id="lstop"
+              name="lstop"
+              placeholder="Enter bus stop"
+            /><br /><br />
+          </div>
+          <div class="d-grid gap-2">
+            <button
+              class="btn btn-primary mt-2"
+              type="button"
+              onclick="addItem()"
+            >
+              Search
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+
+    <script src="index.js"></script>
+  </body>
+</html>
