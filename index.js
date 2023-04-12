@@ -1,9 +1,9 @@
 let fstop, lstop;
 var fair = 0;
 var bus1, bus2;
-var time;
+var time,time_2;
 
-const bus_stop = ["behala", "howrah", "rashbehari", "khiddirpore", "hazra","kalighat"];
+const bus_stop = ["Behala", "Howrah", "Rashbehari", "Khiddirpore", "Hazra","Kalighat"];
 
 
 
@@ -19,12 +19,27 @@ function showMap() {
     const new_node_2 = document.createElement("section");
     new_node_2.setAttribute('id', 'map');
     new_node_2.classList.add('mt-2', 'text-light');
-    new_node_2.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.076537515319!2d88.32667031464358!3d22.538805485200154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02775de26c3dfd%3A0xd7255ce261457bec!2sSt.%20Thomas&#39;%20College%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1676652217015!5m2!1sen!2sin" width="100%" height="90%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><p>Bus arriving in <strong>${time} minutes</strong></p>`
+    new_node_2.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.076537515319!2d88.32667031464358!3d22.538805485200154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02775de26c3dfd%3A0xd7255ce261457bec!2sSt.%20Thomas&#39;%20College%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1676652217015!5m2!1sen!2sin" width="100%" height="90%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><p>Bus arriving in :<strong>${time} minutes</strong></p>`
+    const container = document.getElementById('container');
+    container.insertBefore(new_node_2, container.children[3]);
+}
+function showMap1() {
+    const map= document.getElementById("map")
+    
+    if( document.getElementById("container").contains(map))
+    {
+      map.remove()
+    }
+
+    const new_node_2 = document.createElement("section");
+    new_node_2.setAttribute('id', 'map');
+    new_node_2.classList.add('mt-2', 'text-light');
+    new_node_2.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.076537515319!2d88.32667031464358!3d22.538805485200154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02775de26c3dfd%3A0xd7255ce261457bec!2sSt.%20Thomas&#39;%20College%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1676652217015!5m2!1sen!2sin" width="100%" height="90%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><p>Bus arriving in :<strong>${bus2} : ${time_2} minutes</strong></p>`
     const container = document.getElementById('container');
     container.insertBefore(new_node_2, container.children[3]);
 }
 
-function display(bus1, bus2, fair) {
+function display(bus1, bus2, fare) {
 
     const map= document.getElementById("map")
     
@@ -38,17 +53,17 @@ function display(bus1, bus2, fair) {
     <tr>
       <th>Sl. No</th>
       <th >Bus</th>
-      <th >Fair</th>
+      <th >Fare</th>
     </tr>
     <tr>
       <td>1.</td>
       <td><a href="#map" class="bus" onclick="showMap()">${bus1}</a></td>
-      <td>${fair}</td>
+      <td>${fare}</td>
     </tr>
     <tr>
       <td>2.</td>
-      <td><a href="#map" class="bus" onclick="showMap()">${bus2}</a></td>
-      <td>${fair}</td>
+      <td><a href="#map" class="bus" onclick="showMap1()">${bus2}</a></td>
+      <td>${fare}</td>
     </tr>
   </table>`
 
@@ -64,154 +79,160 @@ function display(bus1, bus2, fair) {
 
 function calculate(fstop, lstop) {
     //khiddirpore-howrah
-    if ((fstop == "khiddirpore" && lstop == "howrah") || (lstop == "khiddirpore" && fstop == "howrah")) {
+    if ((fstop == "Khiddirpore" && lstop == "Howrah") || (lstop == "Khiddirpore" && fstop == "Howrah")) {
         bus1 = "37";
         bus2 = "259";
-        fair = 15;
-    }
+        fare = 15;
+        if(bus1)
+          time=2;
+          
+        if(bus2)
+          time_2=9;  
+    }  
     //howrah-khiddirpore
-      if ((fstop == "howrah" && lstop == "khiddirpore") || (lstop == "howrah" && fstop == "khiddirpore")) {
-        bus1 = "37 A";
-        bus2 = "17 AB";
-        fair = 15;
-        time = 10;
-    }
+    //   if ((fstop == "howrah" && lstop == "khiddirpore") || (lstop == "howrah" && fstop == "khiddirpore")) {
+    //     bus1 = "37 A";
+    //     bus2 = "17 AB";
+    //     fair = 15;
+    //     time = 10;
+    // }
     
 
     //khiddirpore-hazra
-    else if ((fstop == "khiddirpore" && lstop == "hazra") || (lstop == "khiddirpore" && fstop == "hazra")) {
+    else if ((fstop == "Khiddirpore" && lstop == "Hazra") || (lstop == "Khiddirpore" && fstop == "Hazra")) {
         bus1 = "1A";
         bus2 = "37";
-        fair = 12;
-        time = 15;
+        fare = 12;
+        if(bus1)
+          time=4;
+          
+        if(bus2)
+          time_2=12;
+    
     }
     //hazra-khiddirpore
-     else if ((fstop == "hazra" && lstop == "khiddirpore") || (lstop == "hazra" && fstop == "khiddirpore")) {
-        bus1 = "1A";
-        bus2 = "37";
-        fair = 12;
-        time = 12;
-    }
+    //  else if ((fstop == "hazra" && lstop == "khiddirpore") || (lstop == "hazra" && fstop == "khiddirpore")) {
+    //     bus1 = "1A";
+    //     bus2 = "37";
+    //     fair = 12;
+    //     if(bus1)
+    //       time=8;
+          
+    //     if(bus2)
+    //       time_2=15;
+        
+    // }
 
     //khiddirpore-behala
-    else if ((fstop == "khiddirpore" && lstop == "behala") || (lstop == "khiddirpore" && fstop == "behala")) {
+    else if ((fstop == "Khiddirpore" && lstop == "Behala") || (lstop == "Khiddirpore" && fstop == "Behala")) {
         bus1 = "12C/1";
         bus2 = "3D";
-        fair = 15;
+        fare = 15;
+        if(bus1)
+          time=1;
+          
+        if(bus2)
+          time_2=5;
     }
-     //behala-khiddirpore
-     else if ((fstop == "behala" && lstop == "khiddirpore") || (lstop == "behala" && fstop == "khiddirpore")) {
-        bus1 = "235";
-        bus2 = "S21";
-        fair = 15;
-        time = 2;
-    }
+    
 
     //khiddirpore-rashbehari
-    else if ((fstop == "khiddirpore" && lstop == "rashbehari") || (lstop == "khiddirpore" && fstop == "rashbehari")) {
+    else if ((fstop == "Khiddirpore" && lstop == "Rashbehari") || (lstop == "Khiddirpore" && fstop == "Rashbehari")) {
         bus1 = "18C";
         bus2 = "42A";
-        fair = 12;
-        time = 5;
+        fare = 12;
+        if(bus1)
+          time=5;
+          
+        if(bus2)
+          time_2=7;
     }
-    //rashbehari-khiddirpore
-     else if ((fstop == "rashbehari" && lstop == "khiddirpore") || (lstop == "rashbehari" && fstop == "khiddirpore")) {
-         bus1 = "45B";
-         bus2 = "41B";
-         fair = 12;
-    }
+    
     //howrah-kalighat
-     else if ((fstop == "howrah" && lstop == "kalighat") || (lstop == "howrah" && fstop == "kalighat")) {
+     else if ((fstop == "Howrah" && lstop == "Kalighat") || (lstop == "Howrah" && fstop == "Kalighat")) {
         bus1 = "AC-6";
         bus2 = "41B";
-        fair = 20;
+        fare = 20;
+        if(bus1)
+          time=6;
+          
+        if(bus2)
+          time_2=8;
    }
-    //kalighat-howrah
-     else if ((fstop == "kalighat" && lstop == "howrah") || (lstop == "kalighat" && fstop == "howrah")) {
-        bus1 = "107";
-        bus2 = "S-10A";
-        fair = 20;
-        time = 7;
-   }
+ 
 
     //howrah-hazra
-    else if ((fstop == "howrah" && lstop == "hazra") || (lstop == "howrah" && fstop == "hazra")) {
+    else if ((fstop == "Howrah" && lstop == "Hazra") || (lstop == "Howrah" && fstop == "Hazra")) {
         bus1 = "37A";
         bus2 = "S-2";
-        fair = 15;
-        time =3;
+        fare = 15;
+        if(bus1)
+          time=4;
+          
+        if(bus2)
+          time_2=5;
+       
     }
-    //hazra-howrah
-      else if ((fstop == "hazra" && lstop == "howrah") || (lstop == "hazra" && fstop == "howrah")) {
-        bus1 = "37A";
-        bus2 = "42A";
-        fair = 15;
-        time = 3;
-
-    }
+   
 
     //behala-howrah
-    else if ((fstop == "behala" && lstop == "howrah") || (lstop == "behala" && fstop == "howrah")) {
+    else if ((fstop == "Behala" && lstop == "Howrah") || (lstop == "Behala" && fstop == "Howrah")) {
         bus1 = "18A";
         bus2 = "S-21";
-        fair = 25;
-        time = 6;
+        fare = 25;
+        if(bus1)
+          time=4;
+          
+        if(bus2)
+          time_2=11;
+        
     }
-    //howrah-behala
-       else if ((fstop == "howrah" && lstop == "behala") || (lstop == "howrah" && fstop == "behala")) {
-        bus1 = "S-21";
-        bus2 = "27A";
-        fair = 25;
-        time = 10;
-    }
+    
 
     //rashbehari-howrah
-    else if ((fstop == "rashbehari" && lstop == "howrah") || (lstop == "rashbehari" && fstop == "howrah")) {
+    else if ((fstop == "Rashbehari" && lstop == "Howrah") || (lstop == "Rashbehari" && fstop == "Howrah")) {
         bus1 = "12C/1B";
         bus2 = "S-10A";
-        fair = 20;
-        time = 8;
+        fare = 20;
+        if(bus1)
+          time=10;
+          
+        if(bus2)
+          time_2=15;
+      
     }
-    //howrah-rashbehari
-      else if ((fstop == "howrah" && lstop == "rashbehari") || (lstop == "howrah" && fstop == "rashbehari")) {
-        bus1 = "41B";
-        bus2 = "S-1A";
-        fair = 20;
-        time = 5;
-    }
+    
 
 
     //behala-hazra
-    else if ((fstop == "behala" && lstop == "hazra") || (lstop == "behala" && fstop == "hazra")) {
+    else if ((fstop == "Behala" && lstop == "Hazra") || (lstop == "Behala" && fstop == "Hazra")) {
         bus1 = "18C";
         bus2 = "S-131";
-        fair = 12;
-        time = 1;
+        fare = 12;
+        if(bus1)
+          time=1;
+          
+        if(bus2)
+          time_2=3;
+        
     }
 
-    //hazra-rashbehari
-    else if ((fstop == "rashbehari" && lstop == "hazra") || (lstop == "rashbehari" && fstop == "hazra")) {
-        bus1 = "3C/1";
-        bus2 = "18B";
-        fair = 10;
-        time = 10;
-    } 
+   
     //rashbehari-hazra
-    else if ((fstop == "hazra" && lstop == "rashbehari") || (lstop == "hazra" && fstop == "rashbehari")) {
+    else if ((fstop == "Hazra" && lstop == "Rashbehari") || (lstop == "Hazra" && fstop == "Rashbehari")) {
         bus1 = "AC-5";
         bus2 = "13C";
-        fair = 10;
-        time = 1;
-    }
-    //hazra-behala
-     else if ((fstop == "hazra" && lstop == "behala") || (lstop == "hazra" && fstop == "behala")) {
-        bus1 = "18C";
-        bus2 = "42A";
-        fair = 10;
-        time = 9;
+        fare = 10;
+        if(bus1)
+          time=2;
+          
+        if(bus2)
+          time_2=5;
+       
     }
     
-    display(bus1, bus2, fair)
+    
+    display(bus1, bus2, fare)
 }
 
 
