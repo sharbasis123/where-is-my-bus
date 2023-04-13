@@ -278,3 +278,64 @@ function changeColor(){
 }
 
 setInterval(changeColor,1000);
+
+
+
+//Code for firebase
+
+<script type="module">
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+apiKey: "AIzaSyBy_zNS36ocKjO44YNcSCYpDjzX2zANQyU",
+authDomain: "intelligent-transport-sy-dfc52.firebaseapp.com",
+databaseURL: "https://intelligent-transport-sy-dfc52-default-rtdb.firebaseio.com",
+projectId: "intelligent-transport-sy-dfc52",
+storageBucket: "intelligent-transport-sy-dfc52.appspot.com",
+messagingSenderId: "477530009335",
+appId: "1:477530009335:web:c4f79c0eb001bbf9b7edf2",
+measurementId: "G-KR2T7XBGE7"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+//const analytics = getAnalytics(app);
+</script>
+
+
+var app = firebase.initializeApp(firebaseConfig);
+var database = app.database();function writeUserData(userId, name, email, imageUrl) {
+firebase.database().ref('GPS/'+userId).set({
+  username: name,
+  email: email,
+  profile_picture : imageUrl
+  });
+}
+  var starCountRef = firebase.database().ref('GPS/' + postId + '/GPS');
+starCountRef.on('value', (snapshot) => {
+  const data = snapshot.val();
+  updateStarCount(postElement, data);
+});
+function toggleStar(postRef, uid) {
+  postRef.transaction((post) => {
+    if (post) {
+      if (post.stars && post.stars[uid]) {
+        post.starCount--;
+        post.stars[uid] = null;
+      } else {
+        post.starCount++;
+        if (!post.stars) {
+          post.stars = {};
+        }
+        post.stars[uid] = true;
+      }
+    }
+    return post;
+  });
+}
