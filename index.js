@@ -89,13 +89,7 @@ function calculate(fstop, lstop) {
         if(bus2)
           time_2=9;  
     }  
-    //howrah-khiddirpore
-    //   if ((fstop == "howrah" && lstop == "khiddirpore") || (lstop == "howrah" && fstop == "khiddirpore")) {
-    //     bus1 = "37 A";
-    //     bus2 = "17 AB";
-    //     fair = 15;
-    //     time = 10;
-    // }
+   
     
 
     //khiddirpore-hazra
@@ -110,18 +104,7 @@ function calculate(fstop, lstop) {
           time_2=12;
     
     }
-    //hazra-khiddirpore
-    //  else if ((fstop == "hazra" && lstop == "khiddirpore") || (lstop == "hazra" && fstop == "khiddirpore")) {
-    //     bus1 = "1A";
-    //     bus2 = "37";
-    //     fair = 12;
-    //     if(bus1)
-    //       time=8;
-          
-    //     if(bus2)
-    //       time_2=15;
-        
-    // }
+   
 
     //khiddirpore-behala
     else if ((fstop == "Khiddirpore" && lstop == "Behala") || (lstop == "Khiddirpore" && fstop == "Behala")) {
@@ -278,4 +261,5 @@ function changeColor(){
 }
 
 setInterval(changeColor,1000);
+
 
