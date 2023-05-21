@@ -20,7 +20,7 @@ function showMap() {
     new_node_2.setAttribute('id', 'map');
     new_node_2.classList.add('mt-2', 'text-light');
     
-    new_node_2.innerHTML =  `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.661879895212!2d88.34353207497465!3d22.516865779531514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027734da8bfb37%3A0xc012a6ef21105b91!2sKalighat%20Metro%20Station!5e0!3m2!1sen!2sin!4v1682061837262!5m2!1sen!2sin" width="100%" height="90%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><p>Bus arriving in :<strong>${time} minutes</strong></p>`
+    new_node_2.innerHTML =  `<iframe src="<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.076537515318!2d88.32667031495893!3d22.538805485200204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02775de26c3dfd%3A0xd7255ce261457bec!2sSt.%20Thomas&#39;%20College%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1684666171998!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" width="100%" height="90%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><p>Bus arriving in :<strong>${time} minutes</strong></p>`
     const container = document.getElementById('container');
     container.insertBefore(new_node_2, container.children[3]);
 }
@@ -35,7 +35,7 @@ function showMap1() {
     const new_node_2 = document.createElement("section");
     new_node_2.setAttribute('id', 'map');
     new_node_2.classList.add('mt-2', 'text-light');
-    new_node_2.innerHTML = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.076537515319!2d88.32667031464358!3d22.538805485200154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02775de26c3dfd%3A0xd7255ce261457bec!2sSt.%20Thomas&#39;%20College%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1676652217015!5m2!1sen!2sin" width="100%" height="90%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><p>Bus arriving in :<strong>${time_2} minutes</strong></p>`
+    new_node_2.innerHTML = `<iframe src="<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.076537515318!2d88.32667031495893!3d22.538805485200204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02775de26c3dfd%3A0xd7255ce261457bec!2sSt.%20Thomas&#39;%20College%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1684666171998!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" width="100%" height="90%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><p>Bus arriving in :<strong>${time_2} minutes</strong></p>`
     const container = document.getElementById('container');
     container.insertBefore(new_node_2, container.children[3]);
 }
